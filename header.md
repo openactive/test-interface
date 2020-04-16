@@ -15,7 +15,7 @@ To use the "Controlled" test mode within the [OpenActive Test Suite](https://git
 
 A `testDatasetIdentifier` is set in the configuration of the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) instance, and is reused across multiple test runs of the same instance. This allows any existing test data to be cleaned up, while still allowing multiple test suite instances to execute against a shared booking system environment simultaneously.
 
-#### DELETE /test-dataset/:testDatasetIdentifier
+#### `DELETE /test-dataset/:testDatasetIdentifier`
 
 The endpoint is called just once before each test run, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
@@ -40,7 +40,7 @@ Date: Mon, 8 Oct 2018 20:52:36 GMT
 Content-Type: application/vnd.openactive.booking+json; version=1
 ```
 
-#### POST /test-dataset/:testDatasetIdentifier/opportunities
+#### `POST /test-dataset/:testDatasetIdentifier/opportunities`
 
 The endpoint is called (potentially multiple times) before each individual test starts executing, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
@@ -82,7 +82,7 @@ Content-Type: application/vnd.openactive.booking+json; version=1
 
 ### Test Simulation Endpoint
 
-#### POST /test-simulations
+#### `POST /test-simulations`
 
 The `/test-simulation` endpoint is called to simulate a Booking System instigated action for the specified opportunity. 
 
