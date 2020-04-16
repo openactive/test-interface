@@ -25,7 +25,7 @@ It must clean up test data from previous test runs for the given `testDatasetIde
 
 This request would delete all opportunities within the test dataset "`uat-ci`".
 
-```json
+```javascript
 DELETE /test-dataset/uat-ci HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
@@ -34,7 +34,7 @@ Accept: application/vnd.openactive.booking+json; version=1
 
 ##### Example Response
 
-```json
+```javascript
 HTTP/1.1 204 No Content
 Date: Mon, 8 Oct 2018 20:52:36 GMT
 Content-Type: application/vnd.openactive.booking+json; version=1
@@ -50,7 +50,7 @@ The Booking System must create an opportunity of the type specified in `@type` m
 
 This request would create a new `SessionSeries`, within the test dataset "`uat-ci`", that meets the criteria specified in `https://openactive.io/test-interface#TestOpportunityBookable`.
 
-```json
+```javascript
 POST /test-dataset/uat-ci/opportunities HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
@@ -68,7 +68,7 @@ Accept: application/vnd.openactive.booking+json; version=1
 
 ##### Example Response
 
-```json
+```javascript
 HTTP/1.1 201 Created
 Date: Mon, 8 Oct 2018 20:52:36 GMT
 Content-Type: application/vnd.openactive.booking+json; version=1
@@ -96,7 +96,7 @@ The Booking System must respond with a `204` status code and an empty body to in
 
 This request would execute the simulation specified by `https://openactive.io/test-interface#SimulateProviderCancellation` on the `SessionSeries` with `@id` of `https://id.booking-system.example.com/session-series/42`.
 
-```json
+```javascript
 POST /test-simulations HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
@@ -118,7 +118,7 @@ Accept: application/vnd.openactive.booking+json; version=1
 
 ##### Example Response
 
-```json
+```javascript
 HTTP/1.1 204 No Content
 Date: Mon, 8 Oct 2018 20:52:36 GMT
 Content-Type: application/vnd.openactive.booking+json; version=1
