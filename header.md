@@ -21,6 +21,25 @@ The endpoint is called just once before each test run, when the [OpenActive Test
 
 It must clean up test data from previous test runs for the given `testDatasetIdentifier`.
 
+##### Example Request
+
+This request would delete all opportunities within the test dataset "`uat-ci`".
+
+```json
+DELETE /test-dataset/uat-ci HTTP/1.1
+Host: example.com
+Date: Mon, 8 Oct 2018 20:52:35 GMT
+Accept: application/vnd.openactive.booking+json; version=1
+```
+
+##### Example Response
+
+```json
+HTTP/1.1 204 No Content
+Date: Mon, 8 Oct 2018 20:52:36 GMT
+Content-Type: application/vnd.openactive.booking+json; version=1
+```
+
 #### POST /test-dataset/:testDatasetIdentifier/opportunities
 
 The endpoint is called (potentially multiple times) before each individual test starts executing, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
@@ -29,9 +48,9 @@ The Booking System must create an opportunity of the type specified in `@type` m
 
 ##### Example Request
 
-This request would create a new `SessionSeries`, that meets the criteria specified in `https://openactive.io/test-interface#Bookable`.
+This request would create a new `SessionSeries`, within the test dataset "`uat-ci`", that meets the criteria specified in `https://openactive.io/test-interface#TestOpportunityBookable`.
 
-```
+```json
 POST /test-dataset/uat-ci/opportunities HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
@@ -49,7 +68,7 @@ Accept: application/vnd.openactive.booking+json; version=1
 
 ##### Example Response
 
-```
+```json
 HTTP/1.1 201 Created
 Date: Mon, 8 Oct 2018 20:52:36 GMT
 Content-Type: application/vnd.openactive.booking+json; version=1
@@ -75,7 +94,9 @@ The Booking System must respond with a `204` status code and an empty body to in
 
 ##### Example Request
 
-```
+This request would execute the simulation specified by `https://openactive.io/test-interface#SimulateProviderCancellation` on the `SessionSeries` with `@id` of `https://id.booking-system.example.com/session-series/42`.
+
+```json
 POST /test-simulations HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
@@ -97,7 +118,7 @@ Accept: application/vnd.openactive.booking+json; version=1
 
 ##### Example Response
 
-```
+```json
 HTTP/1.1 204 No Content
 Date: Mon, 8 Oct 2018 20:52:36 GMT
 Content-Type: application/vnd.openactive.booking+json; version=1
