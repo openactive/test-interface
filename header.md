@@ -7,7 +7,7 @@ This interface and associated namespace is defined as a convenience to aid testi
 
 The namespace MUST be referenced using the URL `"https://openactive.io/test-interface"` (which will return the [JSON-LD definition](https://openactive.io/test-interface/test-interface.jsonld) if the `Accept` header contains `application/ld+json`), and is designed to be used in conjunction with the `"https://openactive.io/"` namespace.
 
-## Test interface endpoints
+## Test Interface Endpoints
 
 ### Test Dataset Endpoints
 
