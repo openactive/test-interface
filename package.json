@@ -1,0 +1,25 @@
+{
+  "name": "ns-beta",
+  "version": "1.0.0",
+  "description": "This is the documentation and JSON-LD namespace for the test interface of the OpenActive Open Booking API",
+  "scripts": {
+    "start": "./deploy.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openactive/test-interface.git"
+  },
+  "keywords": [
+    "OpenActive"
+  ],
+  "author": "OpenActive Community",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openactive/test-interface/issues"
+  },
+  "homepage": "https://github.com/openactive/test-interface#readme",
+  "dependencies": {
+    "extension-documentation-generator": "git+https://github.com/openactive/extension-documentation-generator.git"
+  }
+}
