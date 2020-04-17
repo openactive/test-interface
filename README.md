@@ -1,7 +1,7 @@
 # Open Booking API Test Interface
-This is the repository of the documentation and JSON-LD namespace for the test interface of the [Open Booking API](https://www.openactive.io/open-booking-api/EditorsDraft).
+This is the repository of the specification and JSON-LD namespace for the test interface of the [Open Booking API](https://www.openactive.io/open-booking-api/EditorsDraft).
 
-Please find documentation relating to this namespace at https://openactive.io/test-interface.
+Please find documentation relating to this specification and namespace at https://openactive.io/test-interface.
 
 ## Contribution
 

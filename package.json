@@ -1,7 +1,7 @@
 {
   "name": "ns-beta",
   "version": "1.0.0",
-  "description": "This is the documentation and JSON-LD namespace for the test interface of the OpenActive Open Booking API",
+  "description": "This is the specification and JSON-LD namespace for the test interface of the OpenActive Open Booking API",
   "scripts": {
     "start": "./deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"

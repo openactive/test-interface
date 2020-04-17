@@ -1,9 +1,20 @@
 # Open Booking API Test Interface
-This is the documentation and JSON-LD namespace for the test interface of the [Open Booking API](https://www.openactive.io/open-booking-api/EditorsDraft).
 
-This interface must be implemented by the Booking System to make use of the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/). For the "Random" test mode, opportunities that match the criteria specified in the TestOpportunityCriteria enumeration must exist in the Booking System.
+This is the specification and JSON-LD namespace for the test interface of the [Open Booking API](https://www.openactive.io/open-booking-api/EditorsDraft).
+
+> Status: Draft | [Please Provide Feedback via GitHub](https://github.com/openactive/test-interface/issues)
+
+## Status
+
+This specification and namespace is in a draft state, however every effort will be made in subsequent revisions to maintain the IDs associated with the enumerations defined here.
+
+## Overview
+
+This interface must be implemented by the Booking System to make use of the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/). For the "Random" test mode, opportunities that match the criteria specified in the `TestOpportunityCriteria` enumeration must exist in the Booking System.
 
 This interface and associated namespace is defined as a convenience to aid testing of the Open Booking API. Booking Systems MUST NOT expose this interface in production environments.
+
+## Namespace
 
 The namespace MUST be referenced using the URL `"https://openactive.io/test-interface"` (which will return the [JSON-LD definition](https://openactive.io/test-interface/test-interface.jsonld) if the `Accept` header contains `application/ld+json`), and is designed to be used in conjunction with the `"https://openactive.io/"` namespace.
 
