@@ -1,7 +1,7 @@
 # Open Booking API Test Interface
 This is the documentation and JSON-LD namespace for the test interface of the [Open Booking API](https://www.openactive.io/open-booking-api/EditorsDraft).
 
-This interface must be implemented by the Booking System to make use of the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/). For the "Random" test mode, opportunities that match the criteria specified in the TesttestOpportunityCriteria enumeration must exist in the Booking System.
+This interface must be implemented by the Booking System to make use of the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/). For the "Random" test mode, opportunities that match the criteria specified in the TestOpportunityCriteria enumeration must exist in the Booking System.
 
 This interface and associated namespace is defined as a convenience to aid testing of the Open Booking API. Booking Systems MUST NOT expose this interface in production environments.
 
@@ -11,11 +11,11 @@ The namespace MUST be referenced using the URL `"https://openactive.io/test-inte
 
 ### Test Dataset Endpoints
 
-To use the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/), the `/test-dataset` endpoints must be implemented. They are not required for "Random" test mode.
+To use the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/), the `/test-datasets` endpoints must be implemented. They are not required for "Random" test mode.
 
 A `testDatasetIdentifier` is set in the configuration of the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) instance, and is reused across multiple test runs of the same instance. This allows any existing test data to be cleaned up, while still allowing multiple test suite instances to execute against a shared booking system environment simultaneously.
 
-#### `DELETE /test-dataset/:testDatasetIdentifier`
+#### `DELETE /test-datasets/:testDatasetIdentifier`
 
 The endpoint is called just once before each test run, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
@@ -26,7 +26,7 @@ It must clean up test data from previous test runs for the given `testDatasetIde
 This request would delete all opportunities within the test dataset "`uat-ci`".
 
 ```javascript
-DELETE /test-dataset/uat-ci HTTP/1.1
+DELETE /test-datasets/uat-ci HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
 Accept: application/vnd.openactive.booking+json; version=1
@@ -40,7 +40,7 @@ Date: Mon, 8 Oct 2018 20:52:36 GMT
 Content-Type: application/vnd.openactive.booking+json; version=1
 ```
 
-#### `POST /test-dataset/:testDatasetIdentifier/opportunities`
+#### `POST /test-datasets/:testDatasetIdentifier/opportunities`
 
 The endpoint is called (potentially multiple times) before each individual test starts executing, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
@@ -51,7 +51,7 @@ The Booking System must create an opportunity of the type specified in `@type` m
 This request would create a new `SessionSeries`, within the test dataset "`uat-ci`", that meets the criteria specified in `https://openactive.io/test-interface#TestOpportunityBookable`.
 
 ```javascript
-POST /test-dataset/uat-ci/opportunities HTTP/1.1
+POST /test-datasets/uat-ci/opportunities HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
 Accept: application/vnd.openactive.booking+json; version=1
