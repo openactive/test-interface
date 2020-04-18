@@ -91,13 +91,13 @@ Content-Type: application/vnd.openactive.booking+json; version=1
 }
 ```
 
-### Test Simulation Endpoint
+### Test Action Endpoint
 
-#### `POST /test-simulations`
+#### `POST /test-actions`
 
-The `/test-simulation` endpoint is called to simulate a Booking System instigated action for the specified opportunity. 
+The `/test-actions` endpoint is called to simulate a Booking System instigated action for the specified opportunity. 
 
-The endpoint is called when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in both "Controlled" and "Random" test modes, only for those tests that depend on test simulation functionality being available in the Booking System.
+The endpoint is called when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in both "Controlled" and "Random" test modes, only for those tests that depend on test action functionality being available in the Booking System.
 
 If this endpoint is not implemented, the features whose tests depend on this endpoint must be configured to "disabled-tests" mode, to allow the test suite to run successfully.
 
@@ -105,10 +105,10 @@ The Booking System must respond with a `204` status code and an empty body to in
 
 ##### Example Request
 
-This request would execute the simulation specified by `https://openactive.io/test-interface#SimulateProviderCancellation` on the `SessionSeries` with `@id` of `https://id.booking-system.example.com/session-series/42`.
+This request would execute the simulation specified by `test:SellerRequestedCancellationSimulateAction` on the `SessionSeries` with `@id` of `https://id.booking-system.example.com/session-series/42`.
 
 ```javascript
-POST /test-simulations HTTP/1.1
+POST /test-actions HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
 Accept: application/vnd.openactive.booking+json; version=1
@@ -118,8 +118,7 @@ Accept: application/vnd.openactive.booking+json; version=1
     "https://openactive.io/",
     "https://openactive.io/test-interface"
   ],
-  "@type": "Action",
-  "test:testOpportunitySimulation": "https://openactive.io/test-interface#SimulateProviderCancellation",
+  "@type": "test:SellerRequestedCancellationSimulateAction",
   "object": {
     "@type": "SessionSeries",
     "@id": "https://id.booking-system.example.com/session-series/42"

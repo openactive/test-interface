@@ -136,75 +136,95 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `Offer.price > 0`, and includes at least one `Offer` with a `prepayment` value that is either `https://openactive.io/Required` or omitted, and `taxMode` of the `seller` is `https://openactive.io/TaxNet`."
     },
 
-
     {
-      "@id": "test:testOpportunitySimulation",
-      "@type": "Property",
-      "label": "testOpportunitySimulation",
-      "comment": "The simulation associated with the specific Action to be executed.",
-      "domainIncludes": [
-        "schema:Action"
-      ],
-      "rangeIncludes": [
-        "test:TestSimulationEnumeration"
-      ]
-    },
-    {
-      "@id": "test:TestSimulationEnumeration",
+      "@id": "test:OpenBookingSimulateAction",
       "@type": "Class",
-      "label": "TestSimulationEnumeration",
-      "comment": "An enumeration of test simulations.",
+      "label": "OpenBookingSimulateAction",
+      "comment": "An action that invokes a simulation of a specific behaviour within the booking system.",
       "subClassOf": [
-        "schema:Enumeration"
+        "schema:Action"
       ]
     },
     {
-      "@id": "https://openactive.io/test-interface#SimulateSellerRequestedCancellation",
-      "@type": "test:TestSimulationEnumeration",
-      "label": "SimulateSellerRequestedCancellation",
-      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation)."
+      "@id": "test:SellerRequestedCancellationSimulateAction",
+      "@type": "Class",
+      "label": "SellerRequestedCancellationSimulationAction",
+      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     },
     {
-      "@id": "https://openactive.io/test-interface#SimulateSellerRequestedCancellationWithMessage",
-      "@type": "test:TestSimulationEnumeration",
-      "label": "SimulateSellerRequestedCancellationWithMessage",
-      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation), with a `cancellationMessage` provided."
+      "@id": "test:SellerRequestedCancellationSimulateAction",
+      "@type": "Class",
+      "label": "SellerRequestedCancellationSimulateAction",
+      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     },
     {
-      "@id": "https://openactive.io/test-interface#SimulateReplacement",
-      "@type": "test:TestSimulationEnumeration",
-      "label": "SimulateReplacement",
-      "comment": "Simulate a [Replacement](https://www.openactive.io/open-booking-api/EditorsDraft/#cancellation-replacement-refund-calculation-and-notification)."
+      "@id": "test:SellerRequestedCancellationWithMessageSimulateAction",
+      "@type": "Class",
+      "label": "SellerRequestedCancellationWithMessageSimulateAction",
+      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation), with a `cancellationMessage` provided.",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     },
     {
-      "@id": "https://openactive.io/test-interface#SimulateCustomerNotice",
-      "@type": "test:TestSimulationEnumeration",
-      "label": "SimulateCustomerNotice",
-      "comment": "Simulate a [Customer Notice](https://www.openactive.io/open-booking-api/EditorsDraft/#customer-notice-notifications)."
+      "@id": "test:ReplacementSimulateAction",
+      "@type": "Class",
+      "label": "ReplacementSimulateAction",
+      "comment": "Simulate a [Replacement](https://www.openactive.io/open-booking-api/EditorsDraft/#cancellation-replacement-refund-calculation-and-notification).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     },
     {
-      "@id": "https://openactive.io/test-interface#SimulateChangeOfLogistics",
-      "@type": "test:TestSimulationEnumeration",
-      "label": "SimulateChangeOfLogistics",
-      "comment": "Simulate a [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications)."
+      "@id": "test:CustomerNoticeSimulateAction",
+      "@type": "Class",
+      "label": "CustomerNoticeSimulateAction",
+      "comment": "Simulate a [Customer Notice](https://www.openactive.io/open-booking-api/EditorsDraft/#customer-notice-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     },
     {
-      "@id": "https://openactive.io/test-interface#SimulateOpportunityAttendanceUpdate",
-      "@type": "test:TestSimulationEnumeration",
-      "label": "SimulateOpportunityAttendanceUpdate",
-      "comment": "Simulate an [Opportunity Attendance Update](https://www.openactive.io/open-booking-api/EditorsDraft/#opportunity-attendance-updates)."
+      "@id": "test:ChangeOfLogisticsSimulateAction",
+      "@type": "Class",
+      "label": "ChangeOfLogisticsSimulateAction",
+      "comment": "Simulate a [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     },
     {
-      "@id": "https://openactive.io/test-interface#SimulateAccessPassUpdate",
-      "@type": "test:TestSimulationEnumeration",
-      "label": "SimulateAccessPassUpdate",
-      "comment": "Simulate an [`accessPass` Update](https://www.openactive.io/open-booking-api/EditorsDraft/#other-notifications)."
+      "@id": "test:OpportunityAttendanceUpdateSimulateAction",
+      "@type": "Class",
+      "label": "OpportunityAttendanceUpdateSimulateAction",
+      "comment": "Simulate an [Opportunity Attendance Update](https://www.openactive.io/open-booking-api/EditorsDraft/#opportunity-attendance-updates).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     },
     {
-      "@id": "https://openactive.io/test-interface#SimulateAccessCodeUpdate",
-      "@type": "test:TestSimulationEnumeration",
-      "label": "SimulateAccessCodeUpdate",
-      "comment": "Simulate an [`accessCode` Update](https://www.openactive.io/open-booking-api/EditorsDraft/#other-notifications)."
+      "@id": "test:AccessPassUpdateSimulateAction",
+      "@type": "Class",
+      "label": "AccessPassUpdateSimulateAction",
+      "comment": "Simulate an [`accessPass` Update](https://www.openactive.io/open-booking-api/EditorsDraft/#other-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:AccessCodeUpdateSimulateAction",
+      "@type": "Class",
+      "label": "AccessCodeUpdateSimulateAction",
+      "comment": "Simulate an [`accessCode` Update](https://www.openactive.io/open-booking-api/EditorsDraft/#other-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     }
   ]
 }
