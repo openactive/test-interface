@@ -20,13 +20,15 @@ The namespace MUST be referenced using the URL `"https://openactive.io/test-inte
 
 ## Test Interface Endpoints
 
-### Test Dataset Endpoints
+### Datasets Endpoints
 
-To use the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/), the `/test-datasets` endpoints must be implemented. They are not required for "Random" test mode.
+To use the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/), the `/test-interface/datasets` endpoints must be implemented. They are not required for "Random" test mode.
 
 A `testDatasetIdentifier` is set in the configuration of the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) instance, and is reused across multiple test runs of the same instance. This allows any existing test data to be cleaned up, while still allowing multiple test suite instances to execute against a shared booking system environment simultaneously.
 
-#### `DELETE /test-datasets/:testDatasetIdentifier`
+#### `DELETE /test-interface/datasets/:testDatasetIdentifier`
+
+This endpoint deletes all opportunities within a given `testDatasetIdentifier`.
 
 The endpoint is called just once before each test run, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
@@ -37,7 +39,7 @@ It must clean up test data from previous test runs for the given `testDatasetIde
 This request would delete all opportunities within the test dataset "`uat-ci`".
 
 ```javascript
-DELETE /test-datasets/uat-ci HTTP/1.1
+DELETE /test-interface/datasets/uat-ci HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
 Accept: application/vnd.openactive.booking+json; version=1
@@ -51,18 +53,22 @@ Date: Mon, 8 Oct 2018 20:52:36 GMT
 Content-Type: application/vnd.openactive.booking+json; version=1
 ```
 
-#### `POST /test-datasets/:testDatasetIdentifier/opportunities`
+#### `POST /test-interface/datasets/:testDatasetIdentifier/opportunities`
+
+This endpoint creates an opportunity in the Booking System, that matches the specified criteria.
 
 The endpoint is called (potentially multiple times) before each individual test starts executing, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
-The Booking System must create an opportunity of the type specified in `@type` matching the criteria specified by `test:testOpportunityCriteria`, within the specified notional "Test Dataset" defined by the `testDatasetIdentifier` within the path.
+The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes a specific `test:testOpportunityCriteria` to which the newly created opportunity just conform, and the appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created.
+
+The Booking System must create an opportunity of the type specified in `@type` (taking into account `@type` of `superEvent` or `facilityUse`) matching the criteria specified by `test:testOpportunityCriteria`, within the specified notional "Test Dataset" defined by the `testDatasetIdentifier` within the path.
 
 ##### Example Request
 
-This request would create a new `SessionSeries`, within the test dataset "`uat-ci`", that meets the criteria specified in `https://openactive.io/test-interface#TestOpportunityBookable`.
+This request would create a new `ScheduledSession`, within the test dataset "`uat-ci`", that meets the criteria specified in `https://openactive.io/test-interface#TestOpportunityBookable`.
 
 ```javascript
-POST /test-datasets/uat-ci/opportunities HTTP/1.1
+POST /test-interface/datasets/uat-ci/opportunities HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
 Accept: application/vnd.openactive.booking+json; version=1
@@ -72,10 +78,14 @@ Accept: application/vnd.openactive.booking+json; version=1
     "https://openactive.io/",
     "https://openactive.io/test-interface"
   ],
-  "@type": "SessionSeries",
+  "@type": "ScheduledSession",
+  "superEvent": {
+    "@type": "SessionSeries"
+  }
   "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable"
 }
 ```
+
 
 ##### Example Response
 
@@ -86,16 +96,16 @@ Content-Type: application/vnd.openactive.booking+json; version=1
 
 {
   "@context": "https://openactive.io/",
-  "@type": "SessionSeries",
-  "@id": "https://id.booking-system.example.com/session-series/42"
+  "@type": "ScheduledSession",
+  "@id": "https://id.booking-system.example.com/scheduled-sessions/42"
 }
 ```
 
-### Test Action Endpoint
+### Actions Endpoint
 
-#### `POST /test-actions`
+#### `POST /test-interface/actions`
 
-The `/test-actions` endpoint is called to simulate a Booking System instigated action for the specified opportunity. 
+The `/test-interface/actions` endpoint is called to simulate a Booking System instigated action for the specified opportunity. 
 
 The endpoint is called when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in both "Controlled" and "Random" test modes, only for those tests that depend on test action functionality being available in the Booking System.
 
@@ -105,10 +115,10 @@ The Booking System must respond with a `204` status code and an empty body to in
 
 ##### Example Request
 
-This request would execute the simulation specified by `test:SellerRequestedCancellationSimulateAction` on the `SessionSeries` with `@id` of `https://id.booking-system.example.com/session-series/42`.
+This request would execute the simulation specified by `test:SellerRequestedCancellationSimulateAction` on the `ScheduledSession` with `@id` of `https://id.booking-system.example.com/session-series/42`.
 
 ```javascript
-POST /test-actions HTTP/1.1
+POST /test-interface/actions HTTP/1.1
 Host: example.com
 Date: Mon, 8 Oct 2018 20:52:35 GMT
 Accept: application/vnd.openactive.booking+json; version=1
@@ -120,8 +130,8 @@ Accept: application/vnd.openactive.booking+json; version=1
   ],
   "@type": "test:SellerRequestedCancellationSimulateAction",
   "object": {
-    "@type": "SessionSeries",
-    "@id": "https://id.booking-system.example.com/session-series/42"
+    "@type": "ScheduledSession",
+    "@id": "https://id.booking-system.example.com/scheduled-sessions/42"
   }
 }
 ```
