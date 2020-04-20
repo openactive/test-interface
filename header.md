@@ -10,7 +10,7 @@ This specification and namespace is in a draft state, however every effort will 
 
 ## Overview
 
-This interface must be implemented by the Booking System to make use of the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/). For the "Random" test mode, opportunities that match the criteria specified in the `TestOpportunityCriteria` enumeration must exist in the Booking System.
+This interface must be implemented by the Booking System to make use of the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/). For the "Random" test mode, opportunities that match the criteria specified in the `TestOpportunityCriteriaEnumeration` enumeration must exist in the Booking System.
 
 This interface and associated namespace is defined as a convenience to aid testing of the Open Booking API. Booking Systems MUST NOT expose this interface in production environments.
 
@@ -59,9 +59,9 @@ This endpoint creates an opportunity in the Booking System, that matches the spe
 
 The endpoint is called (potentially multiple times) before each individual test starts executing, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
-The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes a specific `test:testOpportunityCriteria` to which the newly created opportunity just conform, and the appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created.
+The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes a specific `test:TestOpportunityCriteriaEnumeration` to which the newly created opportunity just conform, and the appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created.
 
-The Booking System must create an opportunity of the type specified in `@type` (taking into account `@type` of `superEvent` or `facilityUse`) matching the criteria specified by `test:testOpportunityCriteria`, within the specified notional "Test Dataset" defined by the `testDatasetIdentifier` within the path.
+The Booking System must create an opportunity of the type specified in `@type` (taking into account `@type` of `superEvent` or `facilityUse`) matching the criteria specified by `test:TestOpportunityCriteriaEnumeration`, within the specified notional "Test Dataset" defined by the `testDatasetIdentifier` within the path.
 
 ##### Example Request
 
