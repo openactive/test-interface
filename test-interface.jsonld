@@ -1,6 +1,6 @@
 {
   "@context": [
-    "https://openactive.io/extension",
+    "https://openactive.io/ns-extension",
     {
       "test": "https://openactive.io/test-interface#"
     }
