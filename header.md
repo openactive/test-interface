@@ -81,7 +81,7 @@ Accept: application/vnd.openactive.booking+json; version=1
   "@type": "ScheduledSession",
   "superEvent": {
     "@type": "SessionSeries"
-  }
+  },
   "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable"
 }
 ```
