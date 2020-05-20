@@ -59,13 +59,13 @@ This endpoint creates an opportunity in the Booking System, that matches the spe
 
 The endpoint is called (potentially multiple times) before each individual test starts executing, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
-The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes a specific `test:TestOpportunityCriteriaEnumeration` to which the newly created opportunity just conform, and the appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created.
+The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes a specific `test:TestOpportunityCriteriaEnumeration` to which the newly created opportunity just conform, and the appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created. It must also include an `organizer` or `provider` `@id` to specify the Seller within which the opportunity should be created.
 
 The Booking System must create an opportunity of the type specified in `@type` (taking into account `@type` of `superEvent` or `facilityUse`) matching the criteria specified by `test:TestOpportunityCriteriaEnumeration`, within the specified notional "Test Dataset" defined by the `testDatasetIdentifier` within the path.
 
 ##### Example Request
 
-This request would create a new `ScheduledSession`, within the test dataset "`uat-ci`", that meets the criteria specified in `https://openactive.io/test-interface#TestOpportunityBookable`.
+This request would create a new `ScheduledSession`, within the test dataset "`uat-ci`", that meets the criteria specified in `https://openactive.io/test-interface#TestOpportunityBookable`, for the `organizer` with `@id` `https://id.booking-system.example.com/organizer/3`.
 
 ```javascript
 POST /test-interface/datasets/uat-ci/opportunities HTTP/1.1
@@ -80,7 +80,11 @@ Accept: application/vnd.openactive.booking+json; version=1
   ],
   "@type": "ScheduledSession",
   "superEvent": {
-    "@type": "SessionSeries"
+    "@type": "SessionSeries",
+    "organizer": {
+      "@type": "Organization",
+      "@id": "https://id.booking-system.example.com/organizer/3"
+    }
   },
   "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable"
 }
