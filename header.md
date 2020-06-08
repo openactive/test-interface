@@ -20,6 +20,8 @@ The namespace MUST be referenced using the URL `"https://openactive.io/test-inte
 
 ## Test Interface Endpoints
 
+The Test Interface Endpoints are specified relative to the same [Base URI](https://openactive.io/open-booking-api/EditorsDraft/#dfn-base-uri) that is defined in the Open Booking API.
+
 ### Datasets Endpoints
 
 To use the "Controlled" test mode within the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/), the `/test-interface/datasets` endpoints must be implemented. They are not required for "Random" test mode.
