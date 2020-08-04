@@ -30,7 +30,7 @@ A `testDatasetIdentifier` is set in the configuration of the [OpenActive Test Su
 
 #### `DELETE /test-interface/datasets/:testDatasetIdentifier`
 
-This endpoint deletes all opportunities within a given `testDatasetIdentifier`.
+This endpoint deletes all opportunities within a given `testDatasetIdentifier`, and also deletes any `Order`s and `OrderItem`s associated with them.
 
 The endpoint is called just once before each test run, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
