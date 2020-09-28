@@ -216,6 +216,24 @@
       "subClassOf": [
         "test:OpenBookingSimulateAction"
       ]
+    },
+    {
+      "@id": "test:SellerAcceptOrderProposalSimulateAction",
+      "@type": "Class",
+      "label": "SellerAcceptOrderProposalSimulateAction",
+      "comment": "Simulate [Proposal Approval of an `OrderProposal`](https://openactive.io/open-booking-api/EditorsDraft/#proposal-approval).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:SellerRejectOrderProposalSimulateAction",
+      "@type": "Class",
+      "label": "SellerRejectOrderProposalSimulateAction",
+      "comment": "Simulate [Proposal Rejection of an `OrderProposal`](https://openactive.io/open-booking-api/EditorsDraft/#proposal-rejection).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
     }
   ]
 }
