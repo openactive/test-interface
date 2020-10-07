@@ -52,6 +52,12 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity == 2`, and includes at least one `Offer` with `prepayment` value that is either `https://openactive.io/Required` or omitted."
     },
     {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableFiveSpaces",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableFiveSpaces",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity == 5`, and includes at least one `Offer` with `prepayment` value that is either `https://openactive.io/Required` or omitted."
+    },
+    {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableFree",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityBookableFree",
