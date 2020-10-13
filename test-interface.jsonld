@@ -100,6 +100,18 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with a `prepayment` value that is either `https://openactive.io/Required` or omitted, except with `latestCancellationBeforeStartDate` outside of range; and with `allowCustomerCancellationFullRefund` as `true`."
     },
     {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableWithinValidFromBeforeStartDateWindow",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableWithinValidFromBeforeStartDateWindow",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with a `prepayment` value that is either `https://openactive.io/Required` or omitted, with `validFromBeforeStartDate` provided, and where `validFromBeforeStartDate` subtracted from the `startDate` is in the past."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableOutsideValidFromBeforeStartDateWindow",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableOutsideValidFromBeforeStartDateWindow",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with a `prepayment` value that is either `https://openactive.io/Required` or omitted, with `validFromBeforeStartDate` provided, except where `validFromBeforeStartDate` subtracted from the `startDate` is in the future."
+    },
+    {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableFreeAttendeeDetails",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityBookableFreeAttendeeDetails",
