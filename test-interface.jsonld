@@ -133,7 +133,7 @@
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityBookableFreePrepaymentOptional",
-      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Optional` and a `price` of  `0`."
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Optional` and a `price` of  `0`. This criteria [violates the specification](https://openactive.io/open-booking-api/EditorsDraft/#free-opportunities), and is only used internally by the OpenActive Test Suite. An implementation of the Test Interface on the Booking System must return an error for this value."
     },
     {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaidPrepaymentOptional",
@@ -157,7 +157,7 @@
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityBookableFreePrepaymentRequired",
-      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Required` and a `price` of  `0`."
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Required` and a `price` of  `0`. This criteria [violates the specification](https://openactive.io/open-booking-api/EditorsDraft/#free-opportunities), and is only used internally by the OpenActive Test Suite. An implementation of the Test Interface on the Booking System must return an error for this value."
     },
     {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaidPrepaymentRequired",
