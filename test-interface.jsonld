@@ -58,9 +58,15 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` either has a `prepayment` value of `https://openactive.io/Unavailable` or has no `prepayment` value specified, and has a `price` of `0`."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaid",
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFree",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookablePaid",
+      "label": "TestOpportunityBookableNonFree",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` with `Offer.price > 0`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableUsingPayment",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableUsingPayment",
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` with `Offer.price > 0` and a `prepayment` value that is not `https://openactive.io/Unavailable`."
     },
     {
@@ -124,15 +130,15 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Optional` and a `price` of  `0`. This criteria [violates the specification](https://openactive.io/open-booking-api/EditorsDraft/#free-opportunities), and is only used internally by the OpenActive Test Suite. An implementation of the Test Interface on the Booking System must return an error for this value."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaidPrepaymentOptional",
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreePrepaymentOptional",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookablePaidPrepaymentOptional",
+      "label": "TestOpportunityBookableNonFreePrepaymentOptional",
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Optional` and a `price` greater than  `0`."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaidPrepaymentUnavailable",
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreePrepaymentUnavailable",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookablePaidPrepaymentUnavailable",
+      "label": "TestOpportunityBookableNonFreePrepaymentUnavailable",
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Unavailable` and a `price` greater than  `0`."
     },
     {
@@ -142,27 +148,27 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Required` and a `price` of  `0`. This criteria [violates the specification](https://openactive.io/open-booking-api/EditorsDraft/#free-opportunities), and is only used internally by the OpenActive Test Suite. An implementation of the Test Interface on the Booking System must return an error for this value."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaidPrepaymentRequired",
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreePrepaymentRequired",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookablePaidPrepaymentRequired",
+      "label": "TestOpportunityBookableNonFreePrepaymentRequired",
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Required` and a `price` greater than  `0`."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaidPrepaymentUnspecified",
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreePrepaymentUnspecified",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookablePaidPrepaymentUnspecified",
+      "label": "TestOpportunityBookableNonFreePrepaymentUnspecified",
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has no `prepayment` value specified and a `price` greater than `0`."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaidTaxGross",
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreeTaxGross",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookablePaidTaxGross",
+      "label": "TestOpportunityBookableNonFreeTaxGross",
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and including at least one `Offer` with `Offer.price > 0`, and where `taxMode` of the `seller` is `https://openactive.io/TaxGross`."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityBookablePaidTaxNet",
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreeTaxNet",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookablePaidTaxNet",
+      "label": "TestOpportunityBookableNonFreeTaxNet",
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and including at least one `Offer` with `Offer.price > 0`, and where `taxMode` of the `seller` is `https://openactive.io/TaxNet`."
     },
     {
