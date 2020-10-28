@@ -55,7 +55,7 @@
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableFree",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityBookableFree",
-      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` either has a `prepayment` value of `https://openactive.io/Unavailable` or has no `prepayment` value specified, and has a `price` of `0`."
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `price` of `0`."
     },
     {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFree",
