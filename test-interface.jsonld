@@ -166,6 +166,12 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and including at least one `Offer` with `Offer.price > 0`, and where `taxMode` of the `seller` is `https://openactive.io/TaxNet`."
     },
     {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableSellerTermsOfService",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableSellerTermsOfService",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `organizer` or `provider` containing a `termsOfService` property."
+    },
+    {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableFlowRequirementOnlyApproval",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityBookableFlowRequirementOnlyApproval",
