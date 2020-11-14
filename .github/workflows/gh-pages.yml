@@ -25,15 +25,15 @@ jobs:
           enable_jekyll: true
 
       - name: Generate repo access token
-        id: get_token
-        uses: machine-learning-apps/actions-app-token@master
+        uses: tibdex/github-app-token@master
+        id: generate-token
         with:
-          APP_PEM: ${{ secrets.OA_AUTOMATION_APP_PRIVATE_KEY }}
-          APP_ID: ${{ secrets.OA_AUTOMATION_APP_ID }}
+          app_id: ${{ secrets.OA_AUTOMATION_APP_ID }}
+          private_key: ${{ secrets.OA_AUTOMATION_APP_PRIVATE_KEY }}
 
       - name: Trigger tooling update
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ steps.get_token.outputs.app_token }}
+          token: ${{ steps.generate-token.outputs.token }}
           repository: openactive/OpenActive.NET
           event-type: data-models-update
