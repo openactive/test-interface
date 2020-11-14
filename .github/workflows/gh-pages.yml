@@ -24,16 +24,10 @@ jobs:
           force_orphan: true
           enable_jekyll: true
 
-      - name: Generate repo access token
-        uses: tibdex/github-app-token@main
-        id: generate-token
-        with:
-          app_id: ${{ secrets.OA_AUTOMATION_APP_ID }}
-          private_key: ${{ secrets.OA_AUTOMATION_APP_PRIVATE_KEY }}
-
       - name: Trigger tooling update
-        uses: peter-evans/repository-dispatch@v1
+        uses: mvasigh/dispatch-action@1.1.6
         with:
-          token: ${{ steps.generate-token.outputs.token }}
-          repository: openactive/OpenActive.NET
-          event-type: data-models-update
+          token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
+          repo: OpenActive.NET
+          owner: openactive
+          event_type: data-models-update
