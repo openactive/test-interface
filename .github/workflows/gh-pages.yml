@@ -25,7 +25,7 @@ jobs:
           enable_jekyll: true
 
       - name: Generate repo access token
-        uses: tibdex/github-app-token@v1
+        uses: tibdex/github-app-token@v1.1.1
         id: generate-token
         with:
           app_id: ${{ secrets.OA_AUTOMATION_APP_ID }}
