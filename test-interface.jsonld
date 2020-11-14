@@ -114,7 +114,7 @@
     {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableAttendeeDetails",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookableFreeAttendeeDetails",
+      "label": "TestOpportunityBookableAttendeeDetails",
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with an `openBookingFlowRequirement` of `https://openactive.io/OpenBookingAttendeeDetails`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
     },
     {
