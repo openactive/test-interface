@@ -26,7 +26,7 @@ jobs:
 
       - name: Generate repo access token
         id: get_token
-        uses: machine-learning-apps/actions-app-token@0.21
+        uses: machine-learning-apps/actions-app-token@master
         with:
           APP_PEM: ${{ secrets.OA_AUTOMATION_APP_PRIVATE_KEY }}
           APP_ID: ${{ secrets.OA_AUTOMATION_APP_ID }}
