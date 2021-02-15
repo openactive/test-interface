@@ -224,10 +224,28 @@
       ]
     },
     {
-      "@id": "test:ChangeOfLogisticsSimulateAction",
+      "@id": "test:ChangeOfLogisticsTimeSimulateAction",
       "@type": "Class",
-      "label": "ChangeOfLogisticsSimulateAction",
-      "comment": "Simulate a [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications).",
+      "label": "ChangeOfLogisticsTimeSimulateAction",
+      "comment": "Simulate a time related [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:ChangeOfLogisticsNameSimulateAction",
+      "@type": "Class",
+      "label": "ChangeOfLogisticsNameSimulateAction",
+      "comment": "Simulate a name related [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:ChangeOfLogisticsLocationSimulateAction",
+      "@type": "Class",
+      "label": "ChangeOfLogisticsLocationSimulateAction",
+      "comment": "Simulate a location related [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications).",
       "subClassOf": [
         "test:OpenBookingSimulateAction"
       ]
