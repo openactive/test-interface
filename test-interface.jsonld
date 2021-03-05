@@ -187,7 +187,7 @@
       "@id": "https://openactive.io/test-interface#TestOpportunityOnlineBookable",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityOnlineBookable",
-      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, including at least one `Offer` with a `openBookingFlowRequirement` value that contains only `https://openactive.io/OpenBookingApproval`, and has `eventAttendanceMode` equal to `MixedEventAttendanceMode` or `OnlineEventAttendanceMode`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and has `eventAttendanceMode` equal to `MixedEventAttendanceMode` or `OnlineEventAttendanceMode`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
     },
     
 
