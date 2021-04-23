@@ -37,7 +37,7 @@
       "@id": "https://openactive.io/test-interface#TestOpportunityOpenBookingNotAllowed",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityOpenBookingNotAllowed",
-      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair) with Seller does not allow open booking, indicated by isOpenBookingAllowed: false"
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair) with Seller that does not allow open booking, indicated by isOpenBookingAllowed: false"
     },
     {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableNoSpaces",
