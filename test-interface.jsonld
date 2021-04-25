@@ -299,6 +299,15 @@
       ]
     },
     {
+      "@id": "test:SellerAmendOrderProposalSimulateAction",
+      "@type": "Class",
+      "label": "SellerAmendOrderProposalSimulateAction",
+      "comment": "Simulate [Proposal Amendment of an `OrderProposal`](https://openactive.io/open-booking-api/EditorsDraft/1.0CR3/#proposal-amendment).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
       "@id": "test:SellerRejectOrderProposalSimulateAction",
       "@type": "Class",
       "label": "SellerRejectOrderProposalSimulateAction",
