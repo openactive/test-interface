@@ -178,12 +178,6 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `organizer` or `provider` containing a `termsOfService` property."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityBookableFlowRequirementOnlyApproval",
-      "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityBookableFlowRequirementOnlyApproval",
-      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and including at least one `Offer` with a `openBookingFlowRequirement` value that contains only `https://openactive.io/OpenBookingApproval`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
-    },
-    {
       "@id": "https://openactive.io/test-interface#TestOpportunityOnlineBookable",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityOnlineBookable",
