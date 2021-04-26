@@ -7,6 +7,40 @@
   ],
   "@graph": [
     {
+      "@id": "test:testOpenBookingFlow",
+      "@type": "Property",
+      "label": "testOpenBookingFlow",
+      "comment": "",
+      "domainIncludes": [
+        "schema:Event"
+      ],
+      "rangeIncludes": [
+        "test:TestOpenBookingFlowEnumeration"
+      ]
+    },
+    {
+      "@id": "test:TestOpenBookingFlowEnumeration",
+      "@type": "Class",
+      "label": "TestOpenBookingFlowEnumeration",
+      "comment": "An enumeration of open booking flows that an opportunity can be booked with.",
+      "subClassOf": [
+        "schema:Enumeration"
+      ]
+    },
+    {
+      "@id": "https://openactive.io/test-interface#OpenBookingSimpleFlow",
+      "@type": "test:TestOpenBookingFlowEnumeration",
+      "label": "OpenBookingSimpleFlow",
+      "comment": "[Simple Booking Flow](https://openactive.io/open-booking-api/EditorsDraft/#simple-booking-flow): Booking flow that does not require approval"
+    },
+    {
+      "@id": "https://openactive.io/test-interface#OpenBookingApprovalFlow",
+      "@type": "test:TestOpenBookingFlowEnumeration",
+      "label": "OpenBookingApprovalFlow",
+      "comment": "[Booking Flow with Approval](https://openactive.io/open-booking-api/EditorsDraft/#booking-flow-with-approval): Booking flow that requires Seller approval before booking"
+    },
+    
+    {
       "@id": "test:testOpportunityCriteria",
       "@type": "Property",
       "label": "testOpportunityCriteria",
