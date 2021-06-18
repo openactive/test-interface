@@ -68,10 +68,10 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
     },
     {
-      "@id": "https://openactive.io/test-interface#TestOpportunityNotBookable",
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableInPast",
       "@type": "test:TestOpportunityCriteriaEnumeration",
-      "label": "TestOpportunityNotBookable",
-      "comment": "Opportunity and Offer that do not match the definition of a [Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair)."
+      "label": "TestOpportunityBookableInPast",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `endDate` in the past."
     },
     {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableNoSpaces",
