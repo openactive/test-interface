@@ -254,7 +254,7 @@
       "label": "SellerRequestedCancellationWithMessageSimulateAction",
       "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation), with a `cancellationMessage` provided.",
       "subClassOf": [
-        "test:SellerRequestedCancellationSimulateAction"
+        "test:OpenBookingSimulateAction"
       ]
     },
     {
