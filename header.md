@@ -136,7 +136,7 @@ Accept: application/vnd.openactive.booking+json; version=1
   ],
   "@type": "test:SellerRequestedCancellationSimulateAction",
   "object": {
-    "@type": "ScheduledSession",
+    "@type": "Order",
     "@id": "https://id.booking-system.example.com/orders/92e55c9f-ba86-471c-9cb4-5030188423b1"
   }
 }
