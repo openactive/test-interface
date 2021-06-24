@@ -1,0 +1,384 @@
+{
+  "@context": [
+    "https://openactive.io/ns-extension",
+    {
+      "test": "https://openactive.io/test-interface#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "test:testOpenBookingFlow",
+      "@type": "Property",
+      "label": "testOpenBookingFlow",
+      "comment": "",
+      "domainIncludes": [
+        "schema:Event"
+      ],
+      "rangeIncludes": [
+        "test:TestOpenBookingFlowEnumeration"
+      ]
+    },
+    {
+      "@id": "test:TestOpenBookingFlowEnumeration",
+      "@type": "Class",
+      "label": "TestOpenBookingFlowEnumeration",
+      "comment": "An enumeration of open booking flows that an opportunity can be booked with.",
+      "subClassOf": [
+        "schema:Enumeration"
+      ]
+    },
+    {
+      "@id": "https://openactive.io/test-interface#OpenBookingSimpleFlow",
+      "@type": "test:TestOpenBookingFlowEnumeration",
+      "label": "OpenBookingSimpleFlow",
+      "comment": "[Simple Booking Flow](https://openactive.io/open-booking-api/EditorsDraft/#simple-booking-flow): Booking flow that does not require approval"
+    },
+    {
+      "@id": "https://openactive.io/test-interface#OpenBookingApprovalFlow",
+      "@type": "test:TestOpenBookingFlowEnumeration",
+      "label": "OpenBookingApprovalFlow",
+      "comment": "[Booking Flow with Approval](https://openactive.io/open-booking-api/EditorsDraft/#booking-flow-with-approval): Booking flow that requires Seller approval before booking"
+    },
+    
+    {
+      "@id": "test:testOpportunityCriteria",
+      "@type": "Property",
+      "label": "testOpportunityCriteria",
+      "comment": "The opportunity criteria which the Event conforms to.",
+      "domainIncludes": [
+        "schema:Event"
+      ],
+      "rangeIncludes": [
+        "test:TestOpportunityCriteriaEnumeration"
+      ]
+    },
+    {
+      "@id": "test:TestOpportunityCriteriaEnumeration",
+      "@type": "Class",
+      "label": "TestOpportunityCriteriaEnumeration",
+      "comment": "An enumeration of test opportunity criteria to which an opportunity must conform.",
+      "subClassOf": [
+        "schema:Enumeration"
+      ]
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookable",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookable",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableInPast",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableInPast",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `endDate` in the past."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNoSpaces",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNoSpaces",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity == 0`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableOneSpace",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableOneSpace",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity == 1`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableFiveSpaces",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableFiveSpaces",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity == 5`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableFree",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableFree",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `price` of `0`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFree",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNonFree",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` with `Offer.price > 0`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableUsingPayment",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableUsingPayment",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` with `Offer.price > 0` and a `prepayment` value that is not `https://openactive.io/Unavailable`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableWithinValidFromBeforeStartDate",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableWithinValidFromBeforeStartDate",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and a `startDate` in range of `validFromBeforeStartDate`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableOutsideValidFromBeforeStartDate",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableOutsideValidFromBeforeStartDate",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and a `startDate` outside of range of `validFromBeforeStartDate`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableCancellable",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableCancellable",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` without `latestCancellationBeforeStartDate` and with `allowCustomerCancellationFullRefund` set to `true`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNotCancellable",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNotCancellable",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` with `latestCancellationBeforeStartDate` outside of range, or with `allowCustomerCancellationFullRefund` set to `false`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableCancellableWithinWindow",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableCancellableWithinWindow",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with `allowCustomerCancellationFullRefund` set to `true` and with `latestCancellationBeforeStartDate` in range."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableCancellableOutsideWindow",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableCancellableOutsideWindow",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with `allowCustomerCancellationFullRefund` set to `true`, except with `latestCancellationBeforeStartDate` outside of range."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableWithinValidFromBeforeStartDateWindow",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableWithinValidFromBeforeStartDateWindow",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with `validFromBeforeStartDate` provided, and where `validFromBeforeStartDate` subtracted from the `startDate` is in the past."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableOutsideValidFromBeforeStartDateWindow",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableOutsideValidFromBeforeStartDateWindow",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with `validFromBeforeStartDate` provided, except where `validFromBeforeStartDate` subtracted from the `startDate` is in the future."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableAttendeeDetails",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableAttendeeDetails",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with an `openBookingFlowRequirement` of `https://openactive.io/OpenBookingAttendeeDetails`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableAdditionalDetails",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableAdditionalDetails",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with an `openBookingFlowRequirement` of `https://openactive.io/OpenBookingIntakeForm`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentOptional",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableFreePrepaymentOptional",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Optional` and a `price` of  `0`. This criteria [violates the specification](https://openactive.io/open-booking-api/EditorsDraft/#free-opportunities), and is only used internally by the OpenActive Test Suite. An implementation of the Test Interface on the Booking System must return an error for this value."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreePrepaymentOptional",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNonFreePrepaymentOptional",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Optional` and a `price` greater than  `0`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreePrepaymentUnavailable",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNonFreePrepaymentUnavailable",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Unavailable` and a `price` greater than  `0`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableFreePrepaymentRequired",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableFreePrepaymentRequired",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has a `prepayment` value of `https://openactive.io/Required` and a `price` of  `0`. This criteria [violates the specification](https://openactive.io/open-booking-api/EditorsDraft/#free-opportunities), and is only used internally by the OpenActive Test Suite. An implementation of the Test Interface on the Booking System must return an error for this value."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreePrepaymentRequired",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNonFreePrepaymentRequired",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, where at least one `Offer` has either no `prepayment` value specified or a `prepayment` value of `https://openactive.io/Required`, and a `price` greater than  `0`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreeTaxGross",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNonFreeTaxGross",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and including at least one `Offer` with `Offer.price > 0`, and where `taxMode` of the `seller` is `https://openactive.io/TaxGross`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreeTaxNet",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNonFreeTaxNet",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and including at least one `Offer` with `Offer.price > 0`, and where `taxMode` of the `seller` is `https://openactive.io/TaxNet`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableSellerTermsOfService",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableSellerTermsOfService",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `organizer` or `provider` containing a `termsOfService` property."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityOnlineBookable",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityOnlineBookable",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and has `eventAttendanceMode` equal to `MixedEventAttendanceMode` or `OnlineEventAttendanceMode`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityOfflineBookable",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityOfflineBookable",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1`, and has `eventAttendanceMode` equal to `MixedEventAttendanceMode` or `OfflineEventAttendanceMode`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableWithNegotiation",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableWithNegotiation",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and including at least one `Offer` with an `openBookingFlowRequirement` of `https://openactive.io/OpenBookingNegotiation`. If both free and paid opportunities are supported by the Booking System, the resulting opportunity should be randomly either free or paid."
+    },
+    
+    {
+      "@id": "test:OpenBookingSimulateAction",
+      "@type": "Class",
+      "label": "OpenBookingSimulateAction",
+      "comment": "An action that invokes a simulation of a specific behaviour within the booking system.",
+      "subClassOf": [
+        "schema:Action"
+      ]
+    },
+    {
+      "@id": "test:SellerRequestedCancellationSimulateAction",
+      "@type": "Class",
+      "label": "SellerRequestedCancellationSimulationAction",
+      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:SellerRequestedCancellationWithMessageSimulateAction",
+      "@type": "Class",
+      "label": "SellerRequestedCancellationWithMessageSimulateAction",
+      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation), with a `cancellationMessage` provided.",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:ReplacementSimulateAction",
+      "@type": "Class",
+      "label": "ReplacementSimulateAction",
+      "comment": "Simulate a [Replacement](https://www.openactive.io/open-booking-api/EditorsDraft/#cancellation-replacement-refund-calculation-and-notification).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:CustomerNoticeSimulateAction",
+      "@type": "Class",
+      "label": "CustomerNoticeSimulateAction",
+      "comment": "Simulate a [Customer Notice](https://www.openactive.io/open-booking-api/EditorsDraft/#customer-notice-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:ChangeOfLogisticsTimeSimulateAction",
+      "@type": "Class",
+      "label": "ChangeOfLogisticsTimeSimulateAction",
+      "comment": "Simulate a time related [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:ChangeOfLogisticsNameSimulateAction",
+      "@type": "Class",
+      "label": "ChangeOfLogisticsNameSimulateAction",
+      "comment": "Simulate a name related [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:ChangeOfLogisticsLocationSimulateAction",
+      "@type": "Class",
+      "label": "ChangeOfLogisticsLocationSimulateAction",
+      "comment": "Simulate a location related [Change of Logistics](https://www.openactive.io/open-booking-api/EditorsDraft/#change-of-logistics-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:AttendeeAttendedSimulateAction",
+      "@type": "Class",
+      "label": "AttendeeAttendedSimulateAction",
+      "comment": "Simulate an [Opportunity Attendance Update](https://www.openactive.io/open-booking-api/EditorsDraft/#opportunity-attendance-updates) of `https://openactive.io/AttendeeAttended`.",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:AttendeeAbsentSimulateAction",
+      "@type": "Class",
+      "label": "AttendeeAbsentSimulateAction",
+      "comment": "Simulate an [Opportunity Attendance Update](https://www.openactive.io/open-booking-api/EditorsDraft/#opportunity-attendance-updates) of `https://openactive.io/AttendeeAbsent`.",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:AccessPassUpdateSimulateAction",
+      "@type": "Class",
+      "label": "AccessPassUpdateSimulateAction",
+      "comment": "Simulate an [`accessPass` Update](https://www.openactive.io/open-booking-api/EditorsDraft/#other-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:AccessCodeUpdateSimulateAction",
+      "@type": "Class",
+      "label": "AccessCodeUpdateSimulateAction",
+      "comment": "Simulate an [`accessCode` Update](https://www.openactive.io/open-booking-api/EditorsDraft/#other-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:SellerAcceptOrderProposalSimulateAction",
+      "@type": "Class",
+      "label": "SellerAcceptOrderProposalSimulateAction",
+      "comment": "Simulate [Proposal Approval of an `OrderProposal`](https://openactive.io/open-booking-api/EditorsDraft/#proposal-approval).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:SellerAmendOrderProposalSimulateAction",
+      "@type": "Class",
+      "label": "SellerAmendOrderProposalSimulateAction",
+      "comment": "Simulate [Proposal Amendment of an `OrderProposal`](https://openactive.io/open-booking-api/EditorsDraft/1.0CR3/#proposal-amendment).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:SellerRejectOrderProposalSimulateAction",
+      "@type": "Class",
+      "label": "SellerRejectOrderProposalSimulateAction",
+      "comment": "Simulate [Proposal Rejection of an `OrderProposal`](https://openactive.io/open-booking-api/EditorsDraft/#proposal-rejection).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    },
+    {
+      "@id": "test:AccessChannelUpdateSimulateAction",
+      "@type": "Class",
+      "label": "AccessChannelUpdateSimulateAction",
+      "comment": "Simulate an [`accessChannel` Update](https://www.openactive.io/open-booking-api/EditorsDraft/#other-notifications).",
+      "subClassOf": [
+        "test:OpenBookingSimulateAction"
+      ]
+    }
+  ]
+}
