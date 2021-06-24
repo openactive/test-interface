@@ -309,19 +309,19 @@
       ]
     },
     {
-      "@id": "test:CustomerAttendedSimulateAction",
+      "@id": "test:AttendeeAttendedSimulateAction",
       "@type": "Class",
-      "label": "CustomerAttendedSimulateAction",
-      "comment": "Simulate an [Opportunity Attendance Update](https://www.openactive.io/open-booking-api/EditorsDraft/#opportunity-attendance-updates) of `https://openactive.io/CustomerAttended`.",
+      "label": "AttendeeAttendedSimulateAction",
+      "comment": "Simulate an [Opportunity Attendance Update](https://www.openactive.io/open-booking-api/EditorsDraft/#opportunity-attendance-updates) of `https://openactive.io/AttendeeAttended`.",
       "subClassOf": [
         "test:OpenBookingSimulateAction"
       ]
     },
     {
-      "@id": "test:CustomerAbsentSimulateAction",
+      "@id": "test:AttendeeAbsentSimulateAction",
       "@type": "Class",
-      "label": "CustomerAbsentSimulateAction",
-      "comment": "Simulate an [Opportunity Attendance Update](https://www.openactive.io/open-booking-api/EditorsDraft/#opportunity-attendance-updates) of `https://openactive.io/CustomerAbsent`.",
+      "label": "AttendeeAbsentSimulateAction",
+      "comment": "Simulate an [Opportunity Attendance Update](https://www.openactive.io/open-booking-api/EditorsDraft/#opportunity-attendance-updates) of `https://openactive.io/AttendeeAbsent`.",
       "subClassOf": [
         "test:OpenBookingSimulateAction"
       ]
