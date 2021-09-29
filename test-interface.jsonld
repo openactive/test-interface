@@ -249,7 +249,7 @@
       "@id": "test:SellerRequestedCancellationSimulateAction",
       "@type": "Class",
       "label": "SellerRequestedCancellationSimulationAction",
-      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation).",
+      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation) for at least one `OrderItem`.",
       "subClassOf": [
         "test:OpenBookingSimulateAction"
       ]
@@ -258,7 +258,7 @@
       "@id": "test:SellerRequestedCancellationWithMessageSimulateAction",
       "@type": "Class",
       "label": "SellerRequestedCancellationWithMessageSimulateAction",
-      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation), with a `cancellationMessage` provided.",
+      "comment": "Simulate a [Seller requested cancellation](https://www.openactive.io/open-booking-api/EditorsDraft/#seller-requested-cancellation) for at least one `OrderItem`, with a `cancellationMessage` provided.",
       "subClassOf": [
         "test:OpenBookingSimulateAction"
       ]
