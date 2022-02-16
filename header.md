@@ -61,7 +61,7 @@ This endpoint creates an opportunity in the Booking System, that matches the spe
 
 The endpoint is called (potentially multiple times) before each individual test starts executing, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
-The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes a specific `test:TestOpportunityCriteriaEnumeration` to which the newly created opportunity just conform, and the appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created. It must also include an `organizer` or `provider` `@id` to specify the Seller within which the opportunity should be created.
+The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes a specific `test:TestOpportunityCriteriaEnumeration` to which the newly created opportunity must conform, and the appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created. It must also include an `organizer` or `provider` `@id` to specify the Seller within which the opportunity should be created.
 
 The Booking System must create an opportunity of the type specified in `@type` (taking into account `@type` of `superEvent` or `facilityUse`) matching the criteria specified by `test:TestOpportunityCriteriaEnumeration`, within the specified notional "Test Dataset" defined by the `testDatasetIdentifier` within the path.
 
