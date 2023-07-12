@@ -128,6 +128,18 @@
       "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` without `latestCancellationBeforeStartDate` and with `allowCustomerCancellationFullRefund` set to `true`."
     },
     {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableNonFreeCancellable",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableNonFreeCancellable",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` without `latestCancellationBeforeStartDate` and with `allowCustomerCancellationFullRefund` set to `true`, and includes at least one `Offer` with `Offer.price > 0`."
+    },
+    {
+      "@id": "https://openactive.io/test-interface#TestOpportunityBookableFreeCancellable",
+      "@type": "test:TestOpportunityCriteriaEnumeration",
+      "label": "TestOpportunityBookableFreeCancellable",
+      "comment": "[Bookable Opportunity with Bookable Offer](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), with `remainingAttendeeCapacity > 1` and includes at least one `Offer` without `latestCancellationBeforeStartDate` and with `allowCustomerCancellationFullRefund` set to `true`, where at least one `Offer` has a `price` of `0`."
+    },
+    {
       "@id": "https://openactive.io/test-interface#TestOpportunityBookableNotCancellable",
       "@type": "test:TestOpportunityCriteriaEnumeration",
       "label": "TestOpportunityBookableNotCancellable",
