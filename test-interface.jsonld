@@ -10,7 +10,7 @@
       "@id": "test:testOpenBookingFlow",
       "@type": "Property",
       "label": "testOpenBookingFlow",
-      "comment": "",
+      "comment": "The [open booking flow](https://openactive.io/open-booking-api/EditorsDraft/1.0CR3/#booking-flows) that a created [Opportunity and Offer pair](https://openactive.io/open-booking-api/EditorsDraft/1.0CR3/#definition-of-a-bookable-opportunity-and-offer-pair) should support.",
       "domainIncludes": [
         "schema:Event"
       ],
@@ -22,7 +22,7 @@
       "@id": "test:TestOpenBookingFlowEnumeration",
       "@type": "Class",
       "label": "TestOpenBookingFlowEnumeration",
-      "comment": "An enumeration of open booking flows that an opportunity can be booked with.",
+      "comment": "An enumeration of [open booking flow](https://openactive.io/open-booking-api/EditorsDraft/1.0CR3/#booking-flows) that an [Opportunity and Offer pair](https://openactive.io/open-booking-api/EditorsDraft/1.0CR3/#definition-of-a-bookable-opportunity-and-offer-pair) can be booked with.",
       "subClassOf": [
         "schema:Enumeration"
       ]
@@ -39,7 +39,6 @@
       "label": "OpenBookingApprovalFlow",
       "comment": "[Booking Flow with Approval](https://openactive.io/open-booking-api/EditorsDraft/#booking-flow-with-approval): Booking flow that requires Seller approval before booking"
     },
-    
     {
       "@id": "test:testOpportunityCriteria",
       "@type": "Property",
