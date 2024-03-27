@@ -61,9 +61,14 @@ This endpoint creates an opportunity in the Booking System, that matches the spe
 
 The endpoint is called (potentially multiple times) before each individual test starts executing, when the [OpenActive Test Suite](https://github.com/openactive/openactive-test-suite/) is run in "Controlled" test mode.
 
-The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes a specific `test:TestOpportunityCriteriaEnumeration` to which the newly created opportunity must conform, and the appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created. It must also include an `organizer` or `provider` `@id` to specify the Seller within which the opportunity should be created.
+The endpoint must accept a [bookable opportunity type](https://www.openactive.io/open-booking-api/EditorsDraft/#definition-of-a-bookable-opportunity-and-offer-pair), which includes:
 
-The Booking System must create an opportunity of the type specified in `@type` (taking into account `@type` of `superEvent` or `facilityUse`) matching the criteria specified by `test:TestOpportunityCriteriaEnumeration`, within the specified notional "Test Dataset" defined by the `testDatasetIdentifier` within the path.
+* A specific `test:TestOpportunityCriteriaEnumeration` (criteria) to which the newly created opportunity must conform.
+* A `test:TestOpenBookingFlowEnumeration` describing which [booking flow](https://openactive.io/open-booking-api/EditorsDraft/1.0CR3/#booking-flows) the opportunity must support.
+* The appropriate `@type` of `superEvent` or `facilityUse` to disambiguate the type of opportunity to be created.
+* An `organizer` or `provider` `@id` to specify the Seller within which the opportunity should be created.
+
+The Booking System must create an opportunity of the type specified in `@type` (taking also into account `@type` of `superEvent` or `facilityUse`) that matches all of the defined constraints (e.g. the criteria), within the specified notional "Test Dataset" defined by the `testDatasetIdentifier` within the path.
 
 ##### Example Request
 
@@ -88,6 +93,7 @@ Accept: application/vnd.openactive.booking+json; version=1
       "@id": "https://id.booking-system.example.com/organizer/3"
     }
   },
+  "test:testOpenBookingFlow": "https://openactive.io/test-interface#OpenBookingSimpleFlow",
   "test:testOpportunityCriteria": "https://openactive.io/test-interface#TestOpportunityBookable"
 }
 ```
